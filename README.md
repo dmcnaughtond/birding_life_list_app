@@ -1,11 +1,14 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Birding Life List App
+
+This is an application created by Daniel McNaughton (d.duncan.mcn@gmail.com) to enable birdwatchers to list the birds they have seen.
+
+Ruby version: 4.2.4
 
 Things you may want to cover:
 
-* Ruby version
+
 
 * System dependencies
 
