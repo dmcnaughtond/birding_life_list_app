@@ -9,4 +9,23 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", about_path
     assert_select "a[href=?]", contact_path
   end
+
+  def setup
+    @user = users(:michael)
+  end
+
+  test "should get help" do
+    get help_path
+    assert_response :success
+  end
+
+  test "should get about" do
+    get about_path
+    assert_response :success
+  end
+
+  test "should get contact" do
+    get contact_path
+    assert_response :success
+  end
 end
