@@ -7,11 +7,11 @@ if Rails.env.production?
     config.fog_credentials = {
       # Configuration for Amazon S3
       :provider               => 'AWS',
-      :aws_access_key_id      => ENV['AWS_ACCESS_KEY'],
-      :aws_secret_access_key  => ENV['AWS_SECRET_KEY']
+      :s3_access_key_id      => ENV['S3_ACCESS_KEY'],
+      :s3_secret_access_key  => ENV['S3_SECRET_KEY']
     }
     
-    config.fog_directory    =  ENV['AWS_BUCKET']
+    config.fog_directory    =  ENV['S3_BUCKET']
     #config.fog_public        = false
     #config.fog_attributes    = { 'Cache-Control'=>'max-age=315576000' }    
   end
