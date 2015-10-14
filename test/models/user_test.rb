@@ -68,4 +68,18 @@ class UserTest < ActiveSupport::TestCase
   test "authenticated? should return false for a user with nil digest" do
     assert_not @user.authenticated?(:remember, '')
   end
+
+  test "associated sighting records should be destroyed" do
+    @user.save
+    @user.sighting_records.create!(order: "Passeriformes", 
+                                  family: "Vireonidae", 
+                                  genus_species: "Vireo olivaceus", 
+                                  common_name: "Red-eyed Vireo", 
+                                  location: "Hyde Park, Chicago, IL", 
+                                  date: "15-5-2015", 
+                                  notes: "Possibly injured.")
+    assert_difference 'SightingRecord.count', -1 do
+      @user.destroy
+    end
+  end
 end

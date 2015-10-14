@@ -8,4 +8,13 @@
       </h1>
     </section>
   </aside>
+  <aside class="col-md-8">
+    <% if @user.sighting_records.any? %>
+      <h3>Your life list has <%= pluralize(@user.sighting_records.count, "bird") %></h3>
+      <ol class="sighting_records">
+        <%= render @sighting_records %>
+      </ol>
+      <%= will_paginate @sighting_records %>
+    <% end %>
+  </aside>
 </div>

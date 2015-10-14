@@ -1,0 +1,2 @@
+module SightingRecordsHelper
+end

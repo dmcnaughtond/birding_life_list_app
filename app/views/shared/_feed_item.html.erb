@@ -1,0 +1,17 @@
+<li id="<%= feed_item.id %>">
+  <p>
+    <span class="content">
+      <p><%= feed_item.order %></p>
+      <p><%= feed_item.family %></p>
+      <p><%= feed_item.genus_species %></p>
+      <p><%= feed_item.common_name %></p>
+      <p><%= feed_item.location %></p>
+      <p><%= feed_item.date %></p>
+      <p><%= feed_item.notes %></p>
+      <p><%= image_tag feed_item.picture.url if feed_item.picture? %></p>
+    </span>
+  </p>
+  <% if current_user?(feed_item.user) %>
+    <%= render 'shared/delete_link', object: feed_item %>
+  <% end %>
+</li>

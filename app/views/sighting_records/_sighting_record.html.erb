@@ -1,0 +1,16 @@
+<li>
+  <div class="content">
+    <p>Order: <span class="entry"><%= sighting_record.order %></span></p>
+    <p>Family: <span class="entry"><%= sighting_record.family %></span></p>
+    <p>Genus and Species: <span class="entry"><%= sighting_record.genus_species %></span></p>
+    <p>Common Name: <span class="entry"><%= sighting_record.common_name %></span></p>
+    <p>Location: <span class="entry"><%= sighting_record.location %></span></p>
+    <p>Date: <span class="entry"><%= sighting_record.date %></span></p>
+    <p>Notes: <span class="entry"><%= sighting_record.notes %></span></p>
+    <p><%= image_tag sighting_record.picture.url if sighting_record.picture? %></p>
+  </div>
+  <% if current_user?(sighting_record.user) %>
+    <%= link_to "delete", sighting_record, method: :delete,
+                                     data: { confirm: "You sure?" } %>
+  <% end %>
+</li>

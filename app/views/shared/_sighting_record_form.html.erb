@@ -1,0 +1,24 @@
+<%= form_for(@sighting_record, html: { multipart: true}) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_field :order, placeholder: "Order" %>
+    <%= f.text_field :family, placeholder: "Family" %>
+    <%= f.text_field :genus_species, placeholder: "Genus and Species" %>
+    <%= f.text_field :common_name, placeholder: "Common Name" %>
+    <%= f.text_field :location, placeholder: "Location" %>
+    <%= f.text_field :date, placeholder: "Date" %>
+    <%= f.text_field :notes, placeholder: "Notes" %>
+    <span class="picture">
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif/,image/png' %>
+  </div>
+  <%= f.submit "Add Record", class: "btn btn-primary" %>
+<% end %>
+
+<script type="text/javascript">
+  $('#sighting_record_picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>

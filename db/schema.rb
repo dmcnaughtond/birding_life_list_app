@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151008162848) do
+ActiveRecord::Schema.define(version: 20151013155019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "sighting_records", force: :cascade do |t|
+    t.string   "order"
+    t.string   "family"
+    t.string   "genus_species"
+    t.string   "common_name"
+    t.string   "location"
+    t.string   "date"
+    t.text     "notes"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "picture"
+  end
+
+  add_index "sighting_records", ["user_id", "order"], name: "index_sighting_records_on_user_id_and_order", using: :btree
+  add_index "sighting_records", ["user_id"], name: "index_sighting_records_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -33,4 +50,5 @@ ActiveRecord::Schema.define(version: 20151008162848) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
+  add_foreign_key "sighting_records", "users"
 end
