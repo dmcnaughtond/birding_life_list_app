@@ -1,5 +1,5 @@
 class SightingRecordsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, only: [:create, :edit, :destroy]
   before_action :correct_user,    only: :destroy
 
   def create
@@ -22,7 +22,8 @@ class SightingRecordsController < ApplicationController
   private
 
     def sighting_record_params
-      params.require(:sighting_record).permit(:order, :family, :genus_species, :common_name, :location, :date, :notes, :picture)
+      params.require(:sighting_record).permit(:order, :family, :genus_species, 
+        :common_name, :location, :date, :notes, :picture)
     end
 
     def correct_user
