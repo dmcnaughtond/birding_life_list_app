@@ -1,9 +1,39 @@
-bluebird:
-  order: "Blueforme"
-  family: "Blutilidae"
-  genus_species: "Bluetilis bluetilis"
-  common_name: "Blue bluebird"
-  location: "The sky"
-  date: "5-10-2000"
-  notes: "Very blue."
+grebe:
+  order: "Gaviiformes"
+  family: "Podicipedidae"
+  genus_species: "Podiceps auritus"
+  common_name: "Horned Grebe"
+  location: "Lake Michigan, Chicago, Illinois"
+  date: "3-8-2014"
+  notes: "Singleton."
+  user: michael
+
+loon:
+  order: "Gaviiformes"
+  family: "Gaviidae"
+  genus_species: "Gavia immer"
+  common_name: "Common Loon"
+  location: "Upper Peninsula, Michigan"
+  date: "9-3-2011"
+  notes: "Two pairs."
+  user: michael
+
+loon_two:
+  order: "Gaviiformes"
+  family: "Gaviidae"
+  genus_species: "Gavia pacifica"
+  common_name: "Pacific Loon"
+  location: "Bolinas Lagoon, California"
+  date: "8-7-2014"
+  notes: "One pair."
+  user: michael
+
+vireo:
+  order: "Passeriformes"
+  family: "Vireonidae"
+  genus_species: "Vireo olivaceus"
+  common_name: "Red-eyed Vireo"
+  location: "Hyde Park, Chicago, Illinois"
+  date: "5-15-2015"
+  notes: "Possibly injured. Taken to CBCM."
   user: michael

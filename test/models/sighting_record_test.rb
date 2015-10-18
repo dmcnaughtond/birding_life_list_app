@@ -26,4 +26,5 @@ class SightingRecordTest < ActiveSupport::TestCase
     @sighting_record.notes = "a" * 66
     assert_not @sighting_record.valid?
   end
+
 end

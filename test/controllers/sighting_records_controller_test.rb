@@ -3,18 +3,18 @@ require 'test_helper'
 class SightingRecordsControllerTest < ActionController::TestCase
 
   def setup
-    @sighting_record = sighting_records(:bluebird)
+    @sighting_record = sighting_records(:grebe)
   end
 
   test "should redirect create when not logged in" do
     assert_no_difference 'SightingRecord.count' do
-      post :create, sighting_record: { order: "Blueforme",
-                                      family: "Blutilidae",
-                                      genus_species: "Bluetilis bluetilis",
-                                      common_name: "Blue bluebird",
-                                      location: "The sky",
-                                      date: "5-10-2000",
-                                      notes: "Very blue." }
+      post :create, sighting_record: { order: "Gaviiformes",
+                                      family: "Podicipedidae",
+                                      genus_species: "Podiceps auritus",
+                                      common_name: "Horned Grebe",
+                                      location: "Lake Michigan, Chicago, Illinois",
+                                      date: "2014-03-08",
+                                      notes: "Singleton." }
     end
     assert_redirected_to login_url
   end
@@ -25,4 +25,5 @@ class SightingRecordsControllerTest < ActionController::TestCase
     end
     assert_redirected_to login_url
   end
+
 end

@@ -1,7 +1,7 @@
 class SightingRecord < ActiveRecord::Base
   belongs_to :user
   mount_uploader :picture, PictureUploader
-  #default_scope -> { order(order: :asc, family: :asc, genus_species: :asc) }
+  default_scope -> { order(order: :asc, family: :asc, genus_species: :asc) }
   validates :user_id, presence: true
   validates :order, presence: true 
   validates :family, presence: true
@@ -11,6 +11,18 @@ class SightingRecord < ActiveRecord::Base
   validates :date, presence: true
   validates :notes, presence: true, length: { maximum: 65 }
   validate  :picture_size
+
+  include PgSearch
+  pg_search_scope :search, against: [:order, :family, :genus_species, 
+                  :common_name, :location]
+
+  def self.text_search(query)
+    if query.present?
+      search(query)
+    else
+      self.all
+    end
+  end
 
   private
 

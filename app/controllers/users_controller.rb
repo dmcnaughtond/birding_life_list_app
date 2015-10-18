@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @sighting_records = @user.sighting_records.paginate(page: params[:page])
+    @sighting_records = @user.sighting_records.text_search(params[:query]).paginate(page: params[:page])
   end
 
   def new

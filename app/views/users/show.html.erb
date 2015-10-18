@@ -1,20 +1,25 @@
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-6">
     <section class="user_info">
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
     </section>
-  </aside>
-  <aside class="col-md-8">
-    <% if @user.sighting_records.any? %>
       <h3>Your life list has <%= pluralize(@user.sighting_records.count, "bird") %></h3>
-      <ol class="sighting_records">
-        <%= render @sighting_records %>
-      </ol>
-      <%= will_paginate @sighting_records %>
-    <% end %>
+        <ol class="sighting_records">
+          <%= form_tag user_path, method: :get do %>
+          <%= text_field_tag :query, params[:query], 
+          placeholder: "Search records by key word ..." %>
+          <%= submit_tag "Search", :name => nil %>
+          <% end %>
+          <% if @sighting_records.present? %>
+            <%= render @sighting_records %>
+            <%= will_paginate @sighting_records %>
+          <% else %>
+            <p>There are no records of a <%= params[:search] %> sighting.</p>
+          <% end %>
+        </ol>
   </aside>
 </div>

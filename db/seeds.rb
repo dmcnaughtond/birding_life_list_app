@@ -18,12 +18,12 @@ User.create!(name:  "Example User",
                activated_at: Time.zone.now)
 end
 
-users = User.take(6)
-50.times do
-  content = Faker::Lorem.sentence(2)
-  users.each { |user| user.sighting_records.create!(order: content, 
-              family: content, genus_species: content, 
-              common_name: content, location: content, date: content,
-              notes: content) }
-end
+# users = User.take(6)
+# 50.times do
+#   content = Faker::Lorem.sentence(2)
+#   users.each { |user| user.sighting_records.create!(order: content, 
+#               family: content, genus_species: content, 
+#               common_name: content, location: content, date: content,
+#               notes: content) }
+# end
 
