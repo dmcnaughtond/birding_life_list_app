@@ -8,18 +8,22 @@
       </h1>
     </section>
       <h3>Your life list has <%= pluralize(@user.sighting_records.count, "bird") %></h3>
-        <ol class="sighting_records">
-          <%= form_tag user_path, method: :get do %>
-          <%= text_field_tag :query, params[:query], 
-          placeholder: "Search records by key word ..." %>
-          <%= submit_tag "Search", :name => nil %>
-          <% end %>
-          <% if @sighting_records.present? %>
-            <%= render @sighting_records %>
-            <%= will_paginate @sighting_records %>
-          <% else %>
-            <p>There are no records of a <%= params[:search] %> sighting.</p>
-          <% end %>
-        </ol>
+        <% if @user.sighting_records.count >= 1 %>
+          <ol class="sighting_records">
+            <%= form_tag user_path, method: :get do %>
+            <%= text_field_tag :query, params[:query], 
+            placeholder: "Search records by key word ..." %>
+            <%= submit_tag "Search", :name => nil %>
+            <% end %>
+            <% if @sighting_records.present? %>
+              <%= render @sighting_records %>
+              <%= will_paginate @sighting_records %>
+            <% else %>
+              <p>There are no records of a <%= params[:search] %> sighting.</p>
+            <% end %>
+          </ol>
+        <% else %>
+          <li><%= link_to "Add a sighting record!", root_path, class: "btn btn-primary" %></li>
+        <% end %> 
   </aside>
 </div>
