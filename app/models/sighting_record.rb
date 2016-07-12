@@ -10,7 +10,7 @@ class SightingRecord < ActiveRecord::Base
   validates :location, presence: true
   validates :date, presence: true
   validates :notes, presence: true, length: { maximum: 65 }
-  validates  :picture_size
+  validate  :picture_size
 
   include PgSearch
   pg_search_scope :search, against: [:order, :family, :genus_species, 

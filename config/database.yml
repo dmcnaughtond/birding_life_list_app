@@ -22,8 +22,10 @@ test:
   database: birdinglifelistdb
   pool: 5
   timeout: 5000
+  password: 3mptyH3dd3d
 
 production:
   adapter: postgresql
   pool: 5
   timeout: 5000
+  password: 3mptyH3dd3d
